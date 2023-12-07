@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+}
+
+compileTestJava {
+    options.encoding = "UTF-8"
+}
+
+compileJava {
+    options.encoding = "UTF-8"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.seleniumhq.selenium:selenium-java:4.15.0'
+    implementation 'org.testng:testng:7.8.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.1'
+}
+
+test {
+    useTestNG(){
+        useDefaultListeners = true
+        suites "/src/test/testng.xml"
+    }
+}
+
+tasks.withType(Test) {
+//    systemProperty 'browser', System.getProperty('browser', 'chrome')
+//    systemProperty 'browser', System.getProperty('browser', 'safari')
+}
+
+/*
+task getBrowserName {
+    println "browser name : " +System.getProperty('browser')
+}
+*/
+
+
+
+
+
+
